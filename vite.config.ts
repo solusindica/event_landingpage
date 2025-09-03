@@ -7,4 +7,6 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  // 👇 Add this for GitHub Pages
+  base: '/event_landingpage/',
 });
