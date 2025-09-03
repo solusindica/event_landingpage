@@ -24,7 +24,7 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in-up">
           <h1 className="text-4xl md:text-7xl font-bold text-white mb-4 leading-tight">
-            Two Traditions,<span className="block text-yellow-400">One Science :</span>
+            Two Traditions, One Science :<span className="block text-yellow-400">The PSA Paradigm</span>
           </h1> 
             
             <p className="text-xl md:text-2xl text-gray-200 mb-8  max-w-4xl mx-auto">Training in Polyscientific Advanced Integrative Medicine (PSA Medicine)</p><br />

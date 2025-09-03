@@ -61,10 +61,10 @@ const PSASection: React.FC = () => {
                 This conference will unveil the structured methodology behind PSA Medicine, including:
               </p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                <li>Standardized assessment protocols that incorporate both traditional diagnostics (pulse, tongue, dosha analysis) and modern biomarkers</li>
-                <li>Treatment algorithms that sequence interventions from multiple traditions</li>
-                <li>Digital health tools that facilitate integrated care delivery</li>
-                <li>Research frameworks for validating integrative approaches</li>
+                <li>Standardized assessment protocols that incorporate both traditional diagnostics (pulse, tongue, dosha analysis) and modern biomarkers.</li>
+                <li>Treatment algorithms that sequence interventions from multiple traditions.</li>
+                <li>Digital health tools that facilitate integrated care delivery.</li>
+                <li>Research frameworks for validating integrative approaches.</li>
               </ul>
             </div>
           </div>

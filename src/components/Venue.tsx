@@ -52,7 +52,7 @@ export default function Venue() {
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
                   <Plane className="w-4 h-4" />
-                  <span>30 minutes from Metropolitan International Airport</span>
+                  <span>30 minutes from Rajiv Gandhi International Airport</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Train className="w-4 h-4" />
@@ -64,18 +64,18 @@ export default function Venue() {
 
           <div className="lg:pl-8">
             {/* Map placeholder */}
-<div className="rounded-xl overflow-hidden shadow-lg h-96 mb-6">
-  <iframe
-    title="T-Hub Hyderabad Map"
-    src="https://maps.google.com/maps?q=17.4345506,78.3792185&z=17&output=embed"
-    width="100%"
-    height="100%"
-    style={{ border: 0 }}
-    allowFullScreen={true}
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-  ></iframe>
-</div>
+              <div className="rounded-xl overflow-hidden shadow-lg h-96 mb-6">
+                <iframe
+                  title="T-Hub Hyderabad Map"
+                  src="https://maps.google.com/maps?q=17.4345506,78.3792185&z=17&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
 
             {/* <div className="bg-gradient-to-r from-blue-900 to-blue-800 text-white p-6 rounded-xl">
               <h4 className="text-xl font-bold mb-4">Accommodation Partners</h4>
