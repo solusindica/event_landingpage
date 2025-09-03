@@ -30,7 +30,7 @@ const RegisterSection: React.FC = () => {
 
   // get initial quote (no coupon)
   useEffect(() => {
-    fetch("http://localhost:8000/payments/quote", {
+    fetch("https://reg-page-backend.onrender.com/quote", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ coupon: null }),

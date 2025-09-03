@@ -28,9 +28,7 @@ export default function Venue() {
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-2">Address</h4>
                   <p className="text-gray-600">
-                     Plot No 1/C, Sy No 83/1 <br />
-                    Raidurgam panmaktha Hyderabad Knowledge City<br />
-                    Serilingampally, Hyderabad, Telangana 500081.
+                    <span>T-Hub Phase 2,</span><br></br> Inorbit Mall Rd, Vittal Rao Nagar, Madhapur, Hyderabad, Telangana 500032
                   </p>
                 </div>
               </div>
@@ -66,18 +64,18 @@ export default function Venue() {
 
           <div className="lg:pl-8">
             {/* Map placeholder */}
-             <div className="rounded-xl overflow-hidden shadow-lg h-96 mb-6">
-          <iframe
-            title="T-Hub Hyderabad Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.664021597924!2d78.3465906!3d17.445659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91236b79c8fb%3A0x529852803fa55d27!2sT-Hub!5e0!3m2!1sen!2sin!4v1693354152664!5m2!1sen!2sin"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen={true}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
+<div className="rounded-xl overflow-hidden shadow-lg h-96 mb-6">
+  <iframe
+    title="T-Hub Hyderabad Map"
+    src="https://maps.google.com/maps?q=17.4345506,78.3792185&z=17&output=embed"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    allowFullScreen={true}
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  ></iframe>
+</div>
 
             {/* <div className="bg-gradient-to-r from-blue-900 to-blue-800 text-white p-6 rounded-xl">
               <h4 className="text-xl font-bold mb-4">Accommodation Partners</h4>
