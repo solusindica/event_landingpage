@@ -158,7 +158,7 @@ const OpportunitiesAndRegistration: React.FC = () => {
 
               <div className="mt-6">
                 <p className="font-semibold text-blue-900">Questions? Contact:</p>
-                <p className="text-gray-700 break-words">ipsaevent@sgprs.com</p>
+                <p className="text-gray-700 break-words"><a href="mailto:ipsaevent@sgprs.com">ipsaevent@sgprs.com</a></p>
               </div>
             </div>
           </div>
