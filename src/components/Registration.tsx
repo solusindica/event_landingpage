@@ -45,7 +45,7 @@ const RegisterSection: React.FC = () => {
   ) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const applyCoupon = async () => {
-    const res = await fetch("http://localhost:8000/payments/quote", {
+    const res = await fetch("https://reg-page-backend.onrender.com/payments/quote", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ coupon: formData.coupon }),
@@ -61,7 +61,7 @@ const RegisterSection: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/payments/create-order", {
+      const res = await fetch("https://reg-page-backend.onrender.com/payments/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -95,7 +95,7 @@ const RegisterSection: React.FC = () => {
         handler: async (response: any) => {
           // verify payment
           const verifyRes = await fetch(
-            "http://localhost:8000/payments/verify-payment",
+            "https://reg-page-backend.onrender.com/payments/verify-payment",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -107,7 +107,7 @@ const RegisterSection: React.FC = () => {
             alert("Payment successful 🎉");
 
             // save registration (implement this endpoint on your API)
-            await fetch("http://localhost:8000/api/register", {
+            await fetch("https://reg-page-backend.onrender.com/api/register", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
