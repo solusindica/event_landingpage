@@ -8,5 +8,5 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   // 👇 Add this for GitHub Pages
-  base: '/event_landingpage/',
+  base: '/',
 });
