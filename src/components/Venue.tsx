@@ -77,15 +77,6 @@ export default function Venue() {
                 ></iframe>
               </div>
 
-            {/* <div className="bg-gradient-to-r from-blue-900 to-blue-800 text-white p-6 rounded-xl">
-              <h4 className="text-xl font-bold mb-4">Accommodation Partners</h4>
-              <p className="text-blue-100 mb-4">
-                Special rates available at nearby partner hotels for conference attendees.
-              </p>
-              <button className="bg-white text-blue-900 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors">
-                View Hotel Options
-              </button>
-            </div> */}
           </div>
         </div>
       </div>
