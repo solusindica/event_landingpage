@@ -28,8 +28,9 @@ export default function Hero() {
           </h1> 
             
             <p className="text-xl md:text-2xl text-gray-200 mb-8  max-w-4xl mx-auto">Training in Polyscientific Advanced Integrative Medicine (PSA Medicine)</p><br />
-          
-          
+            <h2 className="block text-yellow-400 text-5xl">
+              "Organized by Sai Ganga Panakeia (SGP) in collaboration with the National Integrated Medical Association (NIMA)"
+            </h2><br></br>
         
 
           <div className="flex flex-wrap justify-center gap-6 mb-12 text-white">
