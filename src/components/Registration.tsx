@@ -21,6 +21,7 @@ const RegisterSection: React.FC = () => {
     neetScore: "",
     businessName: "",
     visitorPurpose: "",
+    roleName:"",
     practiceField: "",
     coupon: "",
   });
@@ -68,7 +69,7 @@ const RegisterSection: React.FC = () => {
         coupon: formData.coupon || null,
         name: formData.fullName,
         email: formData.email,
-        college: formData.college,
+        type: formData.type,
       }),
     });
 
@@ -89,6 +90,7 @@ const RegisterSection: React.FC = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
+          type: formData.type,
           paymentId: "FREECOUPON",
           paidAmount: 0,
           tier: "FREE",
@@ -135,6 +137,7 @@ const RegisterSection: React.FC = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               ...formData,
+              type: formData.type,
               paymentId: response.razorpay_payment_id,
               paidAmount: quote?.final_rupees,
               tier: quote?.tier,
@@ -222,6 +225,7 @@ const RegisterSection: React.FC = () => {
               <option value="business">Business</option>
               <option value="visitor">Visitor</option>
               <option value="practitioner">Practitioner</option>
+              <option value="Organizer">Organizer </option>
             </select>
 
             {formData.type === "student" && (
@@ -269,10 +273,20 @@ const RegisterSection: React.FC = () => {
                 className="w-full p-3 border rounded-lg"
               />
             )}
+
+            {formData.type === "Organizer" && (
+              <input
+                type="text"
+                name="Role"
+                placeholder="Role"
+                value={formData.roleName}
+                onChange={handleChange}
+                className="w-full p-3 border rounded-lg"/>
+            )}
             {formData.type === "visitor" && (
               <input
                 type="text"
-                name="visitorPurpose"
+                name="visitorPurpose" 
                 placeholder="Purpose of Visit"
                 value={formData.visitorPurpose}
                 onChange={handleChange}

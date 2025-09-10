@@ -114,11 +114,11 @@ const OpportunitiesAndRegistration: React.FC = () => {
               </div>
               <h3 className="text-2xl font-semibold text-blue-900 mb-4">Registration Fees</h3>
               <ul className="space-y-3 text-gray-700">
-                <li>
+                {/* <li>
                   <span className="font-semibold text-blue-900">Early Bird (Until Sept 9, 2025):</span> ₹1000
-                </li>
+                </li> */}
                 <li>
-                  <span className="font-semibold text-blue-900">Regular (Until Sept 18, 2025):</span> ₹1,200
+                  <span className="font-semibold text-blue-900">Regular (Until Sept 18, 2025):</span> ₹1,000
                 </li>
                 <li>
                   <span className="font-semibold text-blue-900">Late/Onsite:</span> ₹1,500

@@ -1,6 +1,6 @@
 import React from "react";
 import { Info } from "lucide-react";
-import PSA from "../assets/PSA.jpg"
+import PSA from "../assets/PSA.png";
 
 const PSASection: React.FC = () => {
   const stats = [
@@ -28,23 +28,25 @@ const PSASection: React.FC = () => {
 
   return (
     <section className="bg-gradient-to-br from-yellow-50 to-blue-50 py-16">
-      <div className="max-w-6xl mx-auto px-6 lg:px-12 space-y-20">
+      <div className="max-w-8xl mx-auto px-6 lg:px-12 space-y-20">
         
         {/* PSA Medicine Approach */}
         <div>
           <h2 className="text-3xl font-bold text-blue-900 mb-10 text-center">
             The PSA Medicine Approach
           </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             {/* Left Image */}
-            <div>
+            <div className="flex justify-center items-center w-full h-full">
               <img
-                src= {PSA}
+                src={PSA}
                 alt="PSA Medicine Approach"
-                className="rounded-xl shadow-lg w-full h-full"
+                className="w-[90%] md:w-full md:h-[550px] object-contain mx-auto"
+
               />
-              </div>
-            
+            </div>
+
             {/* Right Content */}
             <div>
               <p className="text-gray-700 text-lg leading-relaxed mb-4">
@@ -61,8 +63,12 @@ const PSASection: React.FC = () => {
                 This conference will unveil the structured methodology behind PSA Medicine, including:
               </p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                <li>Standardized assessment protocols that incorporate both traditional diagnostics (pulse, tongue, dosha analysis) and modern biomarkers.</li>
-                <li>Treatment algorithms that sequence interventions from multiple traditions.</li>
+                <li>
+                  Standardized assessment protocols that incorporate both traditional diagnostics (pulse, tongue, dosha analysis) and modern biomarkers.
+                </li>
+                <li>
+                  Treatment algorithms that sequence interventions from multiple traditions.
+                </li>
                 <li>Digital health tools that facilitate integrated care delivery.</li>
                 <li>Research frameworks for validating integrative approaches.</li>
               </ul>
@@ -85,10 +91,19 @@ const PSASection: React.FC = () => {
           {/* Stats Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-center mb-12">
             {stats.map((item, index) => (
-              <div key={index} className="space-y-3 border-b md:border-b-0 md:border-r last:border-none border-gray-300 pb-6 md:pb-0 md:pr-6">
-                <div className="text-blue-900 text-4xl font-extrabold">{item.number}</div>
-                <h3 className="text-xl font-semibold text-yellow-600">{item.title}</h3>
-                <p className="text-gray-700 text-sm leading-relaxed">{item.desc}</p>
+              <div
+                key={index}
+                className="space-y-3 border-b md:border-b-0 md:border-r last:border-none border-gray-300 pb-6 md:pb-0 md:pr-6"
+              >
+                <div className="text-blue-900 text-4xl font-extrabold">
+                  {item.number}
+                </div>
+                <h3 className="text-xl font-semibold text-yellow-600">
+                  {item.title}
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -101,13 +116,18 @@ const PSASection: React.FC = () => {
           <div className="bg-blue-900 text-white p-6 rounded-xl shadow-md">
             <div className="flex items-center gap-2 mb-4">
               <Info className="w-6 h-6 text-yellow-400" />
-              <h3 className="text-lg font-semibold">PSA Medicine supports key national priorities:</h3>
+              <h3 className="text-lg font-semibold">
+                PSA Medicine supports key national priorities:
+              </h3>
             </div>
             <ul className="list-disc pl-6 space-y-2 text-gray-100">
               <li>Ayushman Bharat’s goal of comprehensive primary care</li>
               <li>National Digital Health Mission’s vision for connected healthcare</li>
               <li>Make in India initiative through indigenous healthcare solutions</li>
-              <li>One Health approach recognizing interconnections between human, animal, and environmental health</li>
+              <li>
+                One Health approach recognizing interconnections between human, animal,
+                and environmental health
+              </li>
             </ul>
           </div>
         </div>
