@@ -58,85 +58,108 @@ const RegisterSection: React.FC = () => {
   };
 
   const startPayment = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const res = await fetch("https://reg-page-backend.onrender.com/payments/create-order", {
+  e.preventDefault();
+  setLoading(true);
+  try {
+    const res = await fetch("https://reg-page-backend.onrender.com/payments/create-order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        coupon: formData.coupon || null,
+        name: formData.fullName,
+        email: formData.email,
+        college: formData.college,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (data.detail || data.error) {
+      alert(data.detail || data.error);
+      setLoading(false);
+      return;
+    }
+
+    // ✅ handle FREE coupon flow (skip Razorpay)
+    if (data.free_coupon) {
+      alert("Free registration successful 🎉");
+
+      await fetch("https://reg-page-backend.onrender.com/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          coupon: formData.coupon || null,
-          name: formData.fullName,
-          email: formData.email,
+          ...formData,
+          paymentId: "FREECOUPON",
+          paidAmount: 0,
+          tier: "FREE",
         }),
       });
-      const data = await res.json();
-      if (data.detail || data.error) {
-        alert(data.detail || data.error);
-        setLoading(false);
-        return;
-      }
 
-      // Update visible quote from server response (authoritative)
-      if (data.display) setQuote(data.display);
-
-      const options = {
-        key: data.key,
-        amount: data.amount, // in paise
-        currency: "INR",
-        name: "Conference 2025",
-        description: "Conference Registration",
-        order_id: data.order.id,
-        prefill: {
-          name: formData.fullName,
-          email: formData.email,
-          contact: formData.phone,
-        },
-        handler: async (response: any) => {
-          // verify payment
-          const verifyRes = await fetch(
-            "https://reg-page-backend.onrender.com/payments/verify-payment",
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(response),
-            }
-          );
-          const verifyData = await verifyRes.json();
-          if (verifyRes.ok && verifyData.status === "success") {
-            alert("Payment successful 🎉");
-
-            // save registration (implement this endpoint on your API)
-            await fetch("https://reg-page-backend.onrender.com/api/register", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                ...formData,
-                paymentId: response.razorpay_payment_id,
-                paidAmount: quote?.final_rupees,
-                tier: quote?.tier,
-              }),
-            });
-            alert("Registration Completed ✅");
-          } else {
-            alert("Payment verification failed ❌");
-          }
-        },
-        theme: { color: "#3399cc" },
-      };
-
-      const rzp = new (window as any).Razorpay(options);
-      rzp.on("payment.failed", (resp: any) => {
-        console.error(resp);
-        alert("Payment failed or cancelled.");
-      });
-      rzp.open();
-    } catch (err) {
-      console.error(err);
-    } finally {
+      alert("Registration Completed ✅");
       setLoading(false);
+      return;
     }
-  };
+
+    // ✅ Paid flow with Razorpay
+    if (data.display) setQuote(data.display);
+
+    const options = {
+      key: data.key,
+      amount: data.amount, // in paise
+      currency: "INR",
+      name: "Conference 2025",
+      description: "Conference Registration",
+      order_id: data.order.id,
+      prefill: {
+        name: formData.fullName,
+        email: formData.email,
+        contact: formData.phone,
+        college: formData.college,
+      },
+      handler: async (response: any) => {
+        // verify payment
+        const verifyRes = await fetch(
+          "https://reg-page-backend.onrender.com/payments/verify-payment",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(response),
+          }
+        );
+        const verifyData = await verifyRes.json();
+        if (verifyRes.ok && verifyData.status === "success") {
+          alert("Payment successful 🎉");
+
+          await fetch("https://reg-page-backend.onrender.com/api/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              ...formData,
+              paymentId: response.razorpay_payment_id,
+              paidAmount: quote?.final_rupees,
+              tier: quote?.tier,
+            }),
+          });
+          alert("Registration Completed ✅");
+        } else {
+          alert("Payment verification failed ❌");
+        }
+      },
+      theme: { color: "#3399cc" },
+    };
+
+    const rzp = new (window as any).Razorpay(options);
+    rzp.on("payment.failed", (resp: any) => {
+      console.error(resp);
+      alert("Payment failed or cancelled.");
+    });
+    rzp.open();
+  } catch (err) {
+    console.error(err);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <section
