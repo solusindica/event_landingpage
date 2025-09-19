@@ -5,6 +5,7 @@ import About from './components/About';
 import Speakers from './components/Speakers';
 import Agenda from './components/Agenda';
 import Venue from './components/Venue';
+import VideosSection from './components/VideosSection';
 import Registration from './components/Registration';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -35,6 +36,7 @@ function App() {
       <Agenda />
       <OpportunitiesAndRegistration />
       <Venue />
+      <VideosSection />
       <Registration />
       {/* <Contact /> */}
       <Footer />
