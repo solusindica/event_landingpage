@@ -103,12 +103,14 @@ const handleMemberChange = (
         name: m.fullName,
         email: m.email,
         //college: m.college || null,
+        phone: m.phone,
         type: m.type || null,
       }));
     } else {
       body.name = formData.fullName;
       body.email = formData.email;
       body.college = formData.college;
+      body.phone = formData.phone;
       body.type = formData.type;
     }
 
